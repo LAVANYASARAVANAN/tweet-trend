@@ -14,7 +14,7 @@ environment {
         stage("build"){
             steps {
                  echo "----------- build started ----------"
-                sh 'mvn clean deploy -Dmaven.test.skip=true'  ###in build stage dont execute the unit test. 
+                sh 'mvn clean deploy -Dmaven.test.skip=true'  //in build stage dont execute the unit test. 
                  echo "----------- build complted ----------"
             }
         }
@@ -39,10 +39,10 @@ environment {
   stage("Quality Gate"){
     steps {
         script {
-        timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
+        timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout timeout os status can be one hour or more
     def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
     if (qg.status != 'OK') {
-      error "Pipeline aborted due to quality gate failure: ${qg.status}"  ###if quality gate faile, abort the pipeline
+      error "Pipeline aborted due to quality gate failure: ${qg.status}"  //if quality gate faile, abort the pipeline
     }
   }
 }

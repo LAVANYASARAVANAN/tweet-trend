@@ -1,4 +1,4 @@
-def registry = 'https://valaxy05.jfrog.io'
+def registry = 'https://techbeta.jfrog.io/'
 def imageName = 'valaxy05.jfrog.io/valaxy-docker-local/ttrend'
 def version   = '2.1.4'
 pipeline {
